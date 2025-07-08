@@ -1,0 +1,80 @@
+/* Fundo */
+.cadastro-container {
+    height: 98.5vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*container do meio */
+.cadastro-box {
+    background-color: white;
+    padding: 80px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 30%;
+    text-align: center;
+}
+
+form>div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+/* Título */
+.cadastro-box h2 {
+    margin-bottom: 30px;
+    font-family: sans-serif;
+    color: #1F2937
+}
+
+/* cadastre-se */
+.cadastro-box h3 {
+    font-size: 15px;
+    font-family: sans-serif;
+    color: #7e7e7e;
+}
+
+/* Inputs */
+.cadastro-box input {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f1f1f1;
+    box-sizing: border-box;
+}
+
+/* Botão verde */
+.cadastro-box button {
+    width: 60%;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    background-color: #1F2937;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+form>div {
+    width: 100%;
+}
+
+.login {
+    text-decoration: underline;
+    color: #7e7e7e;
+}
+
+.login :hover {
+    cursor: pointer;
+}
