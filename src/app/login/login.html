@@ -1,12 +1,17 @@
 <div class="login-container">
     <div class="login-box">
         <h2>Login</h2>
-        <form>
+
+        <form (ngSubmit)="onSubmit()">
             <div>
-                <input type="email" placeholder="e-mail:" />
-                <input type="senha" placeholder="senha:" />
+                <input type="email" [(ngModel)]="email" name="email" placeholder="e-mail:" />
+                <input type="password" [(ngModel)]="senha" name="senha" placeholder="senha:" />
             </div>
-            <h3>Não tem um login? <a class='cadastro' routerLink="/cadastro"> Cadastre-se </a></h3>
+
+            <h3>
+                Não tem um login?
+                <a class="cadastro" routerLink="/cadastro">Cadastre-se</a>
+            </h3>
 
             <button type="submit">Entrar</button>
         </form>
