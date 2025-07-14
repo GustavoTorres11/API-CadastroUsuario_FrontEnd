@@ -1,0 +1,12 @@
+.texto {
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    align-self: center;
+}
+
+.login-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
