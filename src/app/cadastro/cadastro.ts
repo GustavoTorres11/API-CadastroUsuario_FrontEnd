@@ -34,6 +34,7 @@ export class Cadastro {
     this.loginService.cadastro(usuario).subscribe(
       resposta => {
         console.log('cadastro bem-sucedido!', resposta);
+        localStorage.setItem('token', resposta.token);
         this.router.navigate(['home'])
       },
       erro => {
