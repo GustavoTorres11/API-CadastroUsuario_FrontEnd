@@ -1,0 +1,47 @@
+.admin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.admin-box {
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.admin-box h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #1f2937;
+  text-align: center;
+}
+
+.admin-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.botoes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.botoes button {
+  flex: 1;
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: #1f2937;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}

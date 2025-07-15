@@ -1,20 +1,28 @@
-import { Injectable } from '@angular/core';
-import { CanActivate, Router, UrlTree } from '@angular/router';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-
-
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({ providedIn: 'root' })
 export class AdminGuard implements CanActivate {
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) { }
 
   canActivate(): boolean {
-    if (this.auth.isAdmin()) {
-      return true;
+    // Só acessa localStorage no navegador
+    if (isPlatformBrowser(this.platformId)) {
+      const role = localStorage.getItem('role');
+
+      if (role === 'admin') {
+        return true;
+      }
     }
 
-    this.router.navigate(['home']); // redireciona se não for admin
+    // Se não for admin ou estiver no SSR
+    this.router.navigate(['home']);
     return false;
   }
 }
-

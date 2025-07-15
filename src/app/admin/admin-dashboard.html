@@ -1,0 +1,23 @@
+<div class="admin-container">
+  <div class="admin-box">
+    <h2>Admin</h2>
+
+    <form>
+      <input type="number" [(ngModel)]="id" name="id" placeholder="ID (para PUT/DELETE)" />
+      <input type="text" [(ngModel)]="nome" name="nome" placeholder="Nome" />
+      <input type="email" [(ngModel)]="email" name="email" placeholder="Email" />
+
+      <div class="botoes">
+        <button type="button" (click)="post()">POST</button>
+        <button type="button" (click)="get()">GET</button>
+        <button type="button" (click)="put()">PUT</button>
+        <button type="button" (click)="delete()">DELETE</button>
+      </div>
+    </form>
+
+    <div *ngIf="resultado">
+      <h4>Resultado:</h4>
+      <pre>{{ resultado | json }}</pre>
+    </div>
+  </div>
+</div>
