@@ -13,12 +13,18 @@ import { CommonModule } from '@angular/common';
 export class AdminDashboard {
   id: number | null = null;
   nome = '';
-  email = '';
+  endereco = '';
+  cpf = '';
+  telefone = '';
+
+
   resultado: any;
 
   private apiUrl = 'https://localhost:7135/api/usuario';
+  email: any;
+  senha: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   private getAuthHeaders() {
     const token = localStorage.getItem('token');
@@ -30,9 +36,16 @@ export class AdminDashboard {
   }
 
   post() {
-    const body = { nome: this.nome, email: this.email, senha: '123' };
-    this.http.post(this.apiUrl, body, this.getAuthHeaders())
-      .subscribe(res => this.resultado = res);
+    const body = {
+      nome: this.nome,
+      email: this.email,
+      senha: this.senha,
+      endereco: this.endereco,
+      cpf: this.cpf,
+      telefone: this.telefone
+    };
+    this.http.post("https://localhost:7135/api/Cadastro", body)
+      .subscribe(() => this.resultado = "Usuario Cadastrado");
   }
 
   get() {
@@ -42,7 +55,16 @@ export class AdminDashboard {
 
   put() {
     if (!this.id) return alert('Informe o ID');
-    const body = { id: this.id, nome: this.nome, email: this.email, senha: '123' };
+    const body = {
+      id: this.id,
+      nome: this.nome,
+      email: this.email,
+      senha: this.senha,
+      endereco: this.endereco,
+      cpf: this.cpf,
+      telefone: this.telefone
+    };
+
     this.http.put(`${this.apiUrl}/${this.id}`, body, this.getAuthHeaders())
       .subscribe(res => this.resultado = res);
   }
@@ -53,4 +75,6 @@ export class AdminDashboard {
     this.http.delete(`${this.apiUrl}/${this.id}`, this.getAuthHeaders())
       .subscribe(res => this.resultado = "Usuario removido");
   }
+
+
 }

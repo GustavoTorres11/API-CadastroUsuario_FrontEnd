@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { LoginService } from '../services/login.services';
 import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-cadastro',
   standalone: true,
-  imports: [RouterModule, FormsModule],
+  imports: [RouterModule, FormsModule, MatInputModule],
   templateUrl: './cadastro.html',
   styleUrl: './cadastro.css'
 })

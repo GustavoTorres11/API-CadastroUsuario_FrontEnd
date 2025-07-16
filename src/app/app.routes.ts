@@ -11,13 +11,13 @@ export const routes: Routes = [
     { path: 'login', component: Login },
     { path: 'cadastro', component: Cadastro },
     { path: 'home', component: Home },
-    
-    {   
+
+    {
         path: 'admin',
         canActivate: [AdminGuard],
         children: [
-            {path: '', component: AdminDashboard },
-            {path: 'outra-coisa', component: AdminDashboard},
+            { path: '', component: AdminDashboard },
+            { path: 'outra-coisa', component: AdminDashboard },
         ]
     }
 ];
