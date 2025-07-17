@@ -1,27 +1,51 @@
 <div class="admin-container">
-    <div class="admin-box">
+    <div id="adminBox" class="admin-box">
         <h2>Admin</h2>
 
         <form>
-            <input type="number" [(ngModel)]="id" name="id" placeholder="ID (para PUT/DELETE)" />
-            <input type="text" [(ngModel)]="nome" name="nome" placeholder="Nome" />
-            <input type="email" [(ngModel)]="email" name="email" placeholder="Email" />
-            <input type="password" [(ngModel)]="senha" name="senha" placeholder="Senha" />
-            <input type="text" [(ngModel)]="endereco" name="endereco" placeholder="Endereço" />
-            <input type="text" [(ngModel)]="cpf" name="cpf" placeholder="CPF" />
-            <input type="text" [(ngModel)]="telefone" name="telefone" placeholder="Telefone" />
-
+            <div id="inputs">
+                <input type="number" [(ngModel)]="id" name="id" placeholder="ID (para PUT/DELETE)" />
+                <input type="text" [(ngModel)]="nome" name="nome" placeholder="Nome" />
+                <input type="email" [(ngModel)]="email" name="email" placeholder="Email" />
+                <input type="password" [(ngModel)]="senha" name="senha" placeholder="Senha" />
+                <input type="text" [(ngModel)]="endereco" name="endereco" placeholder="Endereço" />
+                <input type="text" [(ngModel)]="cpf" name="cpf" placeholder="CPF" />
+                <input type="text" [(ngModel)]="telefone" name="telefone" placeholder="Telefone" />
+            </div>
             <div class="botoes">
                 <button type="button" (click)="post()">POST</button>
-                <button type="button" (click)="get()">GET</button>
+                <button type="button" (click)="getUsuariosExpandir()">GET</button>
                 <button type="button" (click)="put()">PUT</button>
                 <button type="button" (click)="delete()">DELETE</button>
             </div>
         </form>
 
-        <div *ngIf="resultado">
-            <h4>Resultado:</h4>
-            <pre>{{ resultado | json }}</pre>
+        <div *ngIf="usuarios && usuarios.length > 0">
+            <table id="conteudo" class="tabela-usuarios">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Endereço</th>
+                        <th>Cpf</th>
+                        <th>Perfil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let usuario of usuarios">
+                        <td>{{usuario.id}}</td>
+                        <td>{{usuario.nome}}</td>
+                        <td>{{usuario.email}}</td>
+                        <td>{{usuario.telefone}}</td>
+                        <td>{{usuario.endereco}}</td>
+                        <td>{{usuario.cpf}}</td>
+                        <td>{{usuario.role}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
         </div>
     </div>
 </div>

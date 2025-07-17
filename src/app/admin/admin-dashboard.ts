@@ -16,6 +16,7 @@ export class AdminDashboard {
   endereco = '';
   cpf = '';
   telefone = '';
+  usuarios: any[] = [];
 
 
   resultado: any;
@@ -48,10 +49,41 @@ export class AdminDashboard {
       .subscribe(() => this.resultado = "Usuario Cadastrado");
   }
 
-  get() {
-    this.http.get(this.apiUrl, this.getAuthHeaders())
-      .subscribe(res => this.resultado = res);
-  }
+  /*get() {
+    this.http.get<any[]>(this.apiUrl, this.getAuthHeaders()).subscribe({
+      next: (res) => {
+        console.log("Usuários recebidos:", res);
+        this.usuarios = res;
+      },
+      error: (err) => {
+        console.error('Erro ao buscar usuários', err);
+      }
+    });
+  }*/
+ getUsuariosExpandir(): void {
+  // Chama o get para buscar usuários
+  this.http.get<any[]>(this.apiUrl, this.getAuthHeaders()).subscribe({
+    next: (res) => {
+      this.usuarios = res;
+      this.resultado = 'Usuários carregados com sucesso';
+
+      // Após carregar, expande visualmente
+      const box = document.getElementById('adminBox');
+      const conteudo = document.getElementById('conteudo'); 
+      const inputs = document.getElementById("inputs");
+
+      if (box && conteudo && inputs) {
+        box.classList.remove('admin-box');
+        box.classList.add('admin-box-expanded');
+        conteudo.style.display = 'block';
+        inputs.style.display = 'none';
+      }
+    },
+    error: (err) => {
+      console.error('Erro ao buscar usuários:', err);
+    }
+  });
+}
 
   put() {
     if (!this.id) return alert('Informe o ID');
@@ -75,6 +107,7 @@ export class AdminDashboard {
     this.http.delete(`${this.apiUrl}/${this.id}`, this.getAuthHeaders())
       .subscribe(res => this.resultado = "Usuario removido");
   }
+
 
 
 }

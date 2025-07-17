@@ -10,15 +10,26 @@
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  width: 400px;
+  width: 500px;
+}
+
+.admin-box-expanded {
+  text-align: center;
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 900px;
+  transition: width 0.35s, height 0.35s ease-in;
 }
 
 .admin-box h2 {
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;  
   font-size: 30px;
   font-family: sans-serif;
   color: #1f2937;
-  text-align: center;
+
 }
 
 .admin-box input {
@@ -45,4 +56,29 @@
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
+}
+
+.tabela-usuarios {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tabela-usuarios th,
+.tabela-usuarios td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabela-usuarios thead {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.tabela-usuarios tbody tr:hover {
+  background-color: #f1f1f1;
 }
