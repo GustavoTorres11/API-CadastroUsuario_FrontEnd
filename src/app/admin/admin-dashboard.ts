@@ -20,6 +20,7 @@ export class AdminDashboard {
 
 
   resultado: any;
+  resultadoGet: any;
 
   private apiUrl = 'https://localhost:7135/api/usuario';
   email: any;
@@ -49,44 +50,36 @@ export class AdminDashboard {
       .subscribe(() => this.resultado = "Usuario Cadastrado");
   }
 
-  /*get() {
+  getUsuariosExpandir(): void {
+    // Chama o get para buscar usuários
     this.http.get<any[]>(this.apiUrl, this.getAuthHeaders()).subscribe({
       next: (res) => {
-        console.log("Usuários recebidos:", res);
         this.usuarios = res;
+        this.resultadoGet = 'Usuários carregados com sucesso';
+
+        // Após carregar, expande visualmente
+        const box = document.getElementById('adminBox');
+        const conteudo = document.getElementById('conteudo');
+        const inputs = document.getElementById("inputs");
+
+        if (box && conteudo && inputs) {
+          box.classList.remove('admin-box');
+          box.classList.add('admin-box-expanded');
+          conteudo.style.display = 'block';
+          inputs.style.display = 'none';
+        }
       },
       error: (err) => {
-        console.error('Erro ao buscar usuários', err);
+        console.error('Erro ao buscar usuários:', err);
       }
     });
-  }*/
- getUsuariosExpandir(): void {
-  // Chama o get para buscar usuários
-  this.http.get<any[]>(this.apiUrl, this.getAuthHeaders()).subscribe({
-    next: (res) => {
-      this.usuarios = res;
-      this.resultado = 'Usuários carregados com sucesso';
-
-      // Após carregar, expande visualmente
-      const box = document.getElementById('adminBox');
-      const conteudo = document.getElementById('conteudo'); 
-      const inputs = document.getElementById("inputs");
-
-      if (box && conteudo && inputs) {
-        box.classList.remove('admin-box');
-        box.classList.add('admin-box-expanded');
-        conteudo.style.display = 'block';
-        inputs.style.display = 'none';
-      }
-    },
-    error: (err) => {
-      console.error('Erro ao buscar usuários:', err);
-    }
-  });
-}
+  }
 
   put() {
-    if (!this.id) return alert('Informe o ID');
+    if (!this.id) {
+      this.resultado = "Informe o Id";
+      return
+    }
     const body = {
       id: this.id,
       nome: this.nome,
@@ -102,12 +95,32 @@ export class AdminDashboard {
   }
 
   delete() {
-    if (!this.id) return alert('Informe o ID');
+    if (!this.id) {
+      this.resultado = "ID não informado";
+      return;
+    }
 
     this.http.delete(`${this.apiUrl}/${this.id}`, this.getAuthHeaders())
-      .subscribe(res => this.resultado = "Usuario removido");
+      .subscribe({
+        next: () => this.resultado = "Usuário removido com sucesso",
+        error: (err) => {
+          console.error("Erro ao remover usuário:", err);
+          this.resultado = "Erro ao remover usuário";
+        }
+      });
+
   }
+  fechar() {
 
+    const box = document.getElementById('adminBox');
+    const conteudo = document.getElementById('conteudo');
+    const inputs = document.getElementById("inputs");
 
-
+    if (box && conteudo && inputs) {
+      box.classList.remove('admin-box-expanded');
+      box.classList.add('admin-box');
+      conteudo.style.display = 'none';
+      inputs.style.display = 'block';
+    }
+  };
 }

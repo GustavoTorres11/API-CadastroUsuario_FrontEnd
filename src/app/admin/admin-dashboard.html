@@ -19,9 +19,14 @@
                 <button type="button" (click)="delete()">DELETE</button>
             </div>
         </form>
-
+        <div class="resultado">
+            {{resultado}}
+        </div>
         <div *ngIf="usuarios && usuarios.length > 0">
             <table id="conteudo" class="tabela-usuarios">
+                <div class="resultadoGet">
+                    {{resultadoGet}}
+                </div>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -44,8 +49,10 @@
                         <td>{{usuario.role}}</td>
                     </tr>
                 </tbody>
+                <div class="botoes">
+                    <button type="button" (click)="fechar()">fechar </button>
+                </div>
             </table>
-
         </div>
     </div>
 </div>
