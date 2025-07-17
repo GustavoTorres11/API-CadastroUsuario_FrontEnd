@@ -5,12 +5,20 @@
   height: 100vh;
 }
 
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .admin-box {
   background: #fff;
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   width: 500px;
+  transition: width 0.6s ease-in-out, height 0.6s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .admin-box-expanded {
@@ -31,19 +39,33 @@
   color: #1f2937;
 }
 
-.admin-box input {
+#inputs {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
+.admin-box input {
+  justify-content: center;
+  display: flex;
   width: 100%;
   padding: 12px;
   margin: 8px 0;
   border-radius: 10px;
   border: 1px solid #ccc;
+  max-width: 450px;
 }
 
 .botoes {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 20px;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
 }
 
 .botoes button {
@@ -56,6 +78,7 @@
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
+  max-width: 300px;
 }
 
 .tabela-usuarios {
