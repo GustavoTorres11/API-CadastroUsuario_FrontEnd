@@ -14,19 +14,54 @@
             </div>
             <div class="botoes">
                 <button type="button" (click)="post()">POST</button>
-                <button type="button" (click)="getUsuariosExpandir()">GET</button>
+                <button type="button" (click)="verificarId()">GET</button>
                 <button type="button" (click)="put()">PUT</button>
                 <button type="button" (click)="delete()">DELETE</button>
             </div>
         </form>
         <div class="resultado">
+            {{resultadoTrue}}
             {{resultado}}
         </div>
+
+        <!-- Tabela para usuário individual - só aparece quando usuario.id existe -->
+        <div *ngIf="usuario && usuario.id">
+            <table id="umUsuario" class="tabela-usuarios">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Endereço</th>
+                        <th>Cpf</th>
+                        <th>Perfil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{nome}}</td>
+                        <td>{{email}}</td>
+                        <td>{{telefone}}</td>
+                        <td>{{endereco}}</td>
+                        <td>{{cpf}}</td>
+                        <td>{{usuario.role}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="botoes">
+                <button type="button" (click)="fechar()">fechar</button>
+            </div>
+        </div>
+
+        <!-- Tabela para lista de usuários -->
         <div *ngIf="usuarios && usuarios.length > 0">
+            <div class="resultadoGet">
+                {{resultadoGet}}
+            </div>
+
             <table id="conteudo" class="tabela-usuarios">
-                <div class="resultadoGet">
-                    {{resultadoGet}}
-                </div>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -49,10 +84,9 @@
                         <td>{{usuario.role}}</td>
                     </tr>
                 </tbody>
-                <div class="botoes">
-                <button type="button" (click)="fechar()">fechar </button>
-                </div>
             </table>
+            
+            <div class="fechar-container">
+                <button type="button" (click)="fechar()">fechar</button>
+            </div>
         </div>
-    </div>
-</div>

@@ -28,7 +28,19 @@ form {
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   width: 900px;
-  transition: width 0.6s ease-in-out, height 0.6s ease-in-out, opacity 0.3s ease-in-out;
+  animation: scaleUp 0.3s ease-out;
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .admin-box h2 {
@@ -72,10 +84,12 @@ form {
   flex: 1;
   margin: 5px;
   padding: 10px;
+  justify-content: center;
+  align-items: center;
   border: none;
   background-color: #1f2937;
   color: white;
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
   max-width: 300px;
@@ -111,7 +125,7 @@ form {
   color: rgb(235, 94, 94);
   padding: 2rem;
   padding-bottom: 0;
-  font-weight: bolder;
+  font-weight: bold;
 }
 
 .resultadoGet {
@@ -121,3 +135,21 @@ form {
   font-size: x-large;
   font-weight: bolder;
 }
+
+.fechar-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.fechar-container button {
+  padding: 10px 20px;
+  width: 30%;
+  background-color: #1f2937;
+  color: white; 
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
