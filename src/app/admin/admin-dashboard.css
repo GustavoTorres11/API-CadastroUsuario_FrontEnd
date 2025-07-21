@@ -18,17 +18,20 @@ form {
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   width: 500px;
-  transition: width 0.6s ease-in-out, height 0.6s ease-in-out, opacity 0.3s ease-in-out;
+  transition: all 0.6s ease-in-out;
+  /* Transição suave pra todas as propriedades */
+  opacity: 1;
 }
 
 .admin-box-expanded {
-  text-align: center;
+  text-align: center; 
   background: #fff;
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  width: 900px;
-  animation: scaleUp 0.3s ease-out;
+  width: 1010px;
+  animation: scaleUp 0.3s ease-out forwards;
+  /* 'forwards' mantém o estado final */
 }
 
 @keyframes scaleUp {
@@ -53,22 +56,26 @@ form {
 
 #inputs {
   width: 100%;
-  max-width: 400px;
+  max-width: 550px;
+  /* Mantém o tamanho máximo ajustado */
   display: flex;
-  align-self: center;
-  justify-content: center;
   flex-direction: column;
+  /* Garante que os inputs fiquem empilhados verticalmente */
+  align-items: center;
+  /* Centraliza os inputs horizontalmente */
+  justify-content: center;
+  /* Centraliza verticalmente dentro do espaço disponível */
+  margin: 0 auto;
+  /* Centraliza o contêiner #inputs horizontalmente na admin-box */
 }
 
 .admin-box input {
-  justify-content: center;
-  display: flex;
   width: 100%;
-  padding: 12px;
-  margin: 8px 0;
+  padding: 15px;
+  margin: 10px 0;
   border-radius: 10px;
   border: 1px solid #ccc;
-  max-width: 450px;
+  max-width: 550px;
 }
 
 .botoes {
@@ -77,22 +84,20 @@ form {
   margin-top: 20px;
   align-items: center;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .botoes button {
   flex: 1;
   margin: 5px;
-  padding: 10px;
-  justify-content: center;
-  align-items: center;
+  padding: 12px;
   border: none;
   background-color: #1f2937;
   color: white;
   border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
-  max-width: 300px;
+  max-width: 350px;
 }
 
 .tabela-usuarios {
@@ -102,6 +107,10 @@ form {
   background-color: #fff;
   border-radius: 8px;
   overflow: hidden;
+  opacity: 1;
+  /* Garante que a tabela comece visível */
+  transition: opacity 0.3s ease-in-out;
+  /* Transição suave pra aparecer */
 }
 
 .tabela-usuarios th,
@@ -143,13 +152,12 @@ form {
 }
 
 .fechar-container button {
-  padding: 10px 20px;
-  width: 30%;
+  padding: 12px 25px;
+  width: 35%;
   background-color: #1f2937;
-  color: white; 
+  color: white;
   border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s;
 }
-

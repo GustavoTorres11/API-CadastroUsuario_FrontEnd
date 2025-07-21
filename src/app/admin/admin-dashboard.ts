@@ -3,9 +3,18 @@ import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { get } from 'node:http';
-import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
-import { Observable } from 'rxjs';
 import { response } from 'express';
+
+interface Usuario {
+  id: string;
+  nome: string;
+  email: string;
+  senha?: string;
+  endereco: string;
+  cpf: string;
+  telefone: string;
+  role: string;
+}
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -15,7 +24,7 @@ import { response } from 'express';
   imports: [HttpClientModule, FormsModule, CommonModule]
 })
 export class AdminDashboard {
-  id: number | null = null;
+  id: string | null = null;
   nome = '';
   endereco = '';
   cpf = '';
@@ -26,6 +35,8 @@ export class AdminDashboard {
   resultadoTrue: any;
   resultadoGet: any;
   resultado: any;
+
+  isExpanded: boolean = false;
 
   private apiUrl = 'https://localhost:7135/api/usuario';
   email: any;
@@ -57,7 +68,7 @@ export class AdminDashboard {
       if (resultadoEl) {
         resultadoEl.style.color = 'rgb(235, 94, 94)';
       } this.resultado = '';
-      this.resultado = 'Preencha todos os campos';    
+      this.resultado = 'Preencha todos os campos';
 
     }
     else {
@@ -72,23 +83,14 @@ export class AdminDashboard {
         .subscribe(() => this.resultadoTrue = "Usuario Cadastrado");
     }
   }
+
   getUsuariosExpandir(): void {
-    this.http.get<any[]>(this.apiUrl, this.getAuthHeaders()).subscribe({
+    this.http.get<Usuario[]>(this.apiUrl, this.getAuthHeaders()).subscribe({
       next: (res) => {
         this.usuarios = res;
         this.resultadoGet = 'Usuários carregados com sucesso';
         this.usuario = {};
-
-        const box = document.getElementById('adminBox');
-        const conteudo = document.getElementById('conteudo');
-        const inputs = document.getElementById("inputs");
-
-        if (box && conteudo && inputs) {
-          box.classList.remove('admin-box');
-          box.classList.add('admin-box-expanded');
-          conteudo.style.display = 'block';
-          inputs.style.display = 'none';
-        }
+        this.isExpanded = true; // Expande a caixa
       },
       error: (err) => {
         console.error('Erro ao buscar usuários:', err);
@@ -120,6 +122,7 @@ export class AdminDashboard {
 
     this.http.put(`${this.apiUrl}/${this.id}`, body, this.getAuthHeaders())
       .subscribe(res => this.resultadoTrue = "Usuário Atualizado !");
+
   }
 
   delete() {
@@ -138,63 +141,39 @@ export class AdminDashboard {
       });
   }
 
-  fechar() {
-    const box = document.getElementById('adminBox');
-    const conteudo = document.getElementById('conteudo');
-    const inputs = document.getElementById("inputs");
-
-    if (box && conteudo && inputs) {
-      box.classList.remove('admin-box-expanded');
-      box.classList.add('admin-box');
-      conteudo.style.display = 'none';
-      inputs.style.display = 'block';
-    }
-
-    // Limpa os dados quando fechar
+  fechar(): void {
+    this.isExpanded = false; // Encolhe a caixa
     this.usuarios = [];
     this.usuario = {};
-  };
+    this.resultadoGet = '';
+    this.resultadoTrue = '';
+  }
 
   verificarId() {
-    if (!this.id || isNaN(this.id)) {
+    if (!(this.id) || this.id == null) {
       this.getUsuariosExpandir();
     } else {
       this.getUsuarioid();
     }
   }
 
-  getUsuarioid() {
-    this.http.get<any>(`${this.apiUrl}/${this.id}`, this.getAuthHeaders())
-      .subscribe({
-        next: (res) => {
-          this.usuario = res;
-          this.resultadoTrue = 'Usuário carregado com sucesso';
-
-          this.nome = res.nome || '';
-          this.email = res.email || '';
-          this.endereco = res.endereco || '';
-          this.cpf = res.cpf || '';
-          this.telefone = res.telefone || '';
-
-          // Limpa a lista de usuários para mostrar apenas o individual
-          this.usuarios = [];
-
-          // Força uma pequena atualização na view
-          setTimeout(() => {
-            const box = document.getElementById('adminBox');
-            const inputs = document.getElementById("inputs");
-
-            if (box && inputs) {
-              box.classList.remove('admin-box');
-              box.classList.add('admin-box-expanded');
-              inputs.style.display = 'none'; // Mantém os inputs visíveis
-            }
-          }, 0);
-        },
-        error: (err) => {
-          console.error("Erro ao buscar usuário:", err);
-          this.resultado = "Erro ao buscar usuário";
-        }
-      })
+  getUsuarioid(): void {
+    this.http.get<Usuario>(`${this.apiUrl}/${this.id}`, this.getAuthHeaders()).subscribe({
+      next: (res) => {
+        this.usuario = res;
+        this.resultadoTrue = 'Usuário carregado com sucesso';
+        this.nome = res.nome || '';
+        this.email = res.email || '';
+        this.endereco = res.endereco || '';
+        this.cpf = res.cpf || '';
+        this.telefone = res.telefone || '';
+        this.usuarios = [];
+        this.isExpanded = true; // Expande a caixa
+      },
+      error: (err) => {
+        console.error('Erro ao buscar usuário:', err);
+        this.resultado = 'Erro ao buscar usuário';
+      }
+    });
   }
 }

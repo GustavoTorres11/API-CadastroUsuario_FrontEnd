@@ -1,10 +1,13 @@
 <div class="admin-container">
-    <div id="adminBox" class="admin-box">
+    <div id="adminBox" [ngClass]="{
+      'admin-box': !isExpanded,
+      'admin-box-expanded': isExpanded
+    }">
         <h2>Admin</h2>
 
         <form>
-            <div id="inputs">
-                <input type="number" [(ngModel)]="id" name="id" placeholder="ID (para PUT/DELETE)" />
+            <div id="inputs" *ngIf="!isExpanded">
+                <input type="text" [(ngModel)]="id" name="id" placeholder="ID (para PUT/DELETE)" />
                 <input type="text" [(ngModel)]="nome" name="nome" placeholder="Nome" />
                 <input type="email" [(ngModel)]="email" name="email" placeholder="Email" />
                 <input type="password" [(ngModel)]="senha" name="senha" placeholder="Senha" />
@@ -13,19 +16,19 @@
                 <input type="text" [(ngModel)]="telefone" name="telefone" placeholder="Telefone" />
             </div>
             <div class="botoes">
-                <button type="button" (click)="post()">POST</button>
-                <button type="button" (click)="verificarId()">GET</button>
-                <button type="button" (click)="put()">PUT</button>
-                <button type="button" (click)="delete()">DELETE</button>
+                <button type="button" (click)="post()">Cadastrar</button>
+                <button type="button" (click)="verificarId()">Listar</button>
+                <button type="button" (click)="put()">Editar</button>
+                <button type="button" (click)="delete()">Remover</button>
             </div>
         </form>
         <div class="resultado">
-            {{resultadoTrue}}
-            {{resultado}}
+            {{ resultadoTrue }}
+            {{ resultado }}
         </div>
 
-        <!-- Tabela para usuário individual - só aparece quando usuario.id existe -->
-        <div *ngIf="usuario && usuario.id">
+        <!-- Tabela para usuário individual -->
+        <div *ngIf="usuario && usuario.id && isExpanded">
             <table id="umUsuario" class="tabela-usuarios">
                 <thead>
                     <tr>
@@ -40,27 +43,24 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{id}}</td>
-                        <td>{{nome}}</td>
-                        <td>{{email}}</td>
-                        <td>{{telefone}}</td>
-                        <td>{{endereco}}</td>
-                        <td>{{cpf}}</td>
-                        <td>{{usuario.role}}</td>
+                        <td>{{ id }}</td>
+                        <td>{{ nome }}</td>
+                        <td>{{ email }}</td>
+                        <td>{{ telefone }}</td>
+                        <td>{{ endereco }}</td>
+                        <td>{{ cpf }}</td>
+                        <td>{{ usuario.role }}</td>
                     </tr>
                 </tbody>
             </table>
-            <div class="botoes">
+            <div class="fechar-container">
                 <button type="button" (click)="fechar()">fechar</button>
             </div>
         </div>
 
         <!-- Tabela para lista de usuários -->
-        <div *ngIf="usuarios && usuarios.length > 0">
-            <div class="resultadoGet">
-                {{resultadoGet}}
-            </div>
-
+        <div *ngIf="usuarios && usuarios.length > 0 && isExpanded">
+            <div class="resultadoGet">{{ resultadoGet }}</div>
             <table id="conteudo" class="tabela-usuarios">
                 <thead>
                     <tr>
@@ -75,18 +75,22 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let usuario of usuarios">
-                        <td>{{usuario.id}}</td>
-                        <td>{{usuario.nome}}</td>
-                        <td>{{usuario.email}}</td>
-                        <td>{{usuario.telefone}}</td>
-                        <td>{{usuario.endereco}}</td>
-                        <td>{{usuario.cpf}}</td>
-                        <td>{{usuario.role}}</td>
+                        <td>{{ usuario.id }}</td>
+                        <td>{{ usuario.nome }}</td>
+                        <td>{{ usuario.email }}</td>
+                        <td>{{ usuario.telefone }}</td>
+                        <td>{{ usuario.endereco }}</td>
+                        <td>{{ usuario.cpf }}</td>
+                        <td>{{ usuario.role }}</td>
                     </tr>
                 </tbody>
             </table>
-            
             <div class="fechar-container">
                 <button type="button" (click)="fechar()">fechar</button>
             </div>
         </div>
+    </div>
+</div>
+
+
+>
