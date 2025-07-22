@@ -7,13 +7,13 @@
 
         <form>
             <div id="inputs" *ngIf="!isExpanded">
-                <input type="text" [(ngModel)]="id" name="id" placeholder="ID (para PUT/DELETE)" />
-                <input type="text" [(ngModel)]="nome" name="nome" placeholder="Nome" />
-                <input type="email" [(ngModel)]="email" name="email" placeholder="Email" />
-                <input type="password" [(ngModel)]="senha" name="senha" placeholder="Senha" />
-                <input type="text" [(ngModel)]="endereco" name="endereco" placeholder="Endereço" />
-                <input type="text" [(ngModel)]="cpf" name="cpf" placeholder="CPF" />
-                <input type="text" [(ngModel)]="telefone" name="telefone" placeholder="Telefone" />
+                <input type="text" [(ngModel)]="id" name="id" placeholder="Busca por ID (Listar, Remover ou Editar)" />
+                <input type="text" [(ngModel)]="nome" name="nome" placeholder="Nome:" />
+                <input type="email" [(ngModel)]="email" name="email" placeholder="Email:" />
+                <input type="password" [(ngModel)]="senha" name="senha" placeholder="Senha:" />
+                <input type="text" [(ngModel)]="endereco" name="endereco" placeholder="Endereço:" />
+                <input type="text" [(ngModel)]="cpf" name="cpf" placeholder="CPF:" />
+                <input type="text" [(ngModel)]="telefone" name="telefone" placeholder="Telefone:" />
             </div>
             <div class="botoes">
                 <button type="button" (click)="post()">Cadastrar</button>
@@ -22,8 +22,11 @@
                 <button type="button" (click)="delete()">Remover</button>
             </div>
         </form>
-        <div class="resultado">
+        <div class="mensagem sucesso" *ngIf="resultadoTrue">
             {{ resultadoTrue }}
+        </div>
+
+        <div class="mensagem erro" *ngIf="resultado">
             {{ resultado }}
         </div>
 
@@ -32,7 +35,6 @@
             <table id="umUsuario" class="tabela-usuarios">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Nome</th>
                         <th>Email</th>
                         <th>Telefone</th>
@@ -43,7 +45,6 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ id }}</td>
                         <td>{{ nome }}</td>
                         <td>{{ email }}</td>
                         <td>{{ telefone }}</td>
@@ -60,11 +61,13 @@
 
         <!-- Tabela para lista de usuários -->
         <div *ngIf="usuarios && usuarios.length > 0 && isExpanded">
-            <div class="resultadoGet">{{ resultadoGet }}</div>
+            <div class="resultadoGet" *ngIf="resultadoGet">
+                {{ resultadoGet }}
+            </div>
+
             <table id="conteudo" class="tabela-usuarios">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Nome</th>
                         <th>Email</th>
                         <th>Telefone</th>
@@ -75,7 +78,6 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let usuario of usuarios">
-                        <td>{{ usuario.id }}</td>
                         <td>{{ usuario.nome }}</td>
                         <td>{{ usuario.email }}</td>
                         <td>{{ usuario.telefone }}</td>

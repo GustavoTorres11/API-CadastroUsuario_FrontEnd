@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { get } from 'node:http';
-import { response } from 'express';
 
 interface Usuario {
   id: string;
@@ -37,10 +35,10 @@ export class AdminDashboard {
   resultado: any;
 
   isExpanded: boolean = false;
-
-  private apiUrl = 'https://localhost:7135/api/usuario';
   email: any;
   senha: any;
+
+  private apiUrl = 'https://localhost:7135/api/usuario';
 
   constructor(private http: HttpClient) { }
 
@@ -53,6 +51,20 @@ export class AdminDashboard {
     };
   }
 
+  exibirMensagem(tipo: 'erro' | 'sucesso' | 'get', mensagem: string): void {
+
+    if (tipo === 'erro') {
+      this.resultado = mensagem;
+      setTimeout(() => this.resultado = '', 3000);
+    } else if (tipo === 'sucesso') {
+      this.resultadoTrue = mensagem;
+      setTimeout(() => this.resultadoTrue = '', 3000);
+    } else if (tipo === 'get') {
+      this.resultadoGet = mensagem;
+      setTimeout(() => this.resultadoGet = '', 3000);
+    }
+  }
+
   post(): void {
     const body = {
       nome: this.nome,
@@ -63,24 +75,11 @@ export class AdminDashboard {
       telefone: this.telefone
     };
 
-    if (body.nome == null || body.email == null || body.senha == null || body.endereco == null || body.cpf == null || body.telefone == null) {
-      const resultadoEl = document.getElementsByClassName("resultado")[0] as HTMLElement;
-      if (resultadoEl) {
-        resultadoEl.style.color = 'rgb(235, 94, 94)';
-      } this.resultado = '';
-      this.resultado = 'Preencha todos os campos';
-
-    }
-    else {
-      this.resultado = '';
-      const resultadoEl = document.getElementsByClassName("resultado")[0] as HTMLElement;
-      if (resultadoEl) {
-        resultadoEl.style.color = '#1f2937';
-      }
-
-      this.resultado = ''; // sempre quando chamar a função ele limpa a outra
+    if (!body.nome || !body.email || !body.senha || !body.endereco || !body.cpf || !body.telefone) {
+      this.exibirMensagem('erro', 'Preencha todos os campos');
+    } else {
       this.http.post("https://localhost:7135/api/Cadastro", body)
-        .subscribe(() => this.resultadoTrue = "Usuario Cadastrado");
+        .subscribe(() => this.exibirMensagem('sucesso', "Usuário Cadastrado"));
     }
   }
 
@@ -88,28 +87,23 @@ export class AdminDashboard {
     this.http.get<Usuario[]>(this.apiUrl, this.getAuthHeaders()).subscribe({
       next: (res) => {
         this.usuarios = res;
-        this.resultadoGet = 'Usuários carregados com sucesso';
         this.usuario = {};
-        this.isExpanded = true; // Expande a caixa
+        this.isExpanded = true;
+        this.exibirMensagem('get', 'Usuários carregados com sucesso');
       },
       error: (err) => {
         console.error('Erro ao buscar usuários:', err);
+        this.exibirMensagem('erro', 'Erro ao buscar usuários');
       }
     });
   }
 
   put() {
     if (!this.id) {
-      this.resultado = "Informe o Id";
-      this.resultadoTrue = '';
-
-      const resultadoEl = document.getElementsByClassName("resultado")[0] as HTMLElement;
-      if (resultadoEl) {
-        resultadoEl.style.color = 'rgb(235, 94, 94)';
-      }
-
-      return
+      this.exibirMensagem('erro', "Informe o Id");
+      return;
     }
+
     const body = {
       id: this.id,
       nome: this.nome,
@@ -121,28 +115,27 @@ export class AdminDashboard {
     };
 
     this.http.put(`${this.apiUrl}/${this.id}`, body, this.getAuthHeaders())
-      .subscribe(res => this.resultadoTrue = "Usuário Atualizado !");
-
+      .subscribe(() => this.exibirMensagem('sucesso', "Usuário Atualizado!"));
   }
 
   delete() {
     if (!this.id) {
-      this.resultado = "ID não informado";
+      this.exibirMensagem('erro', "ID não informado");
       return;
     }
 
     this.http.delete(`${this.apiUrl}/${this.id}`, this.getAuthHeaders())
       .subscribe({
-        next: () => this.resultadoTrue = "Usuário removido com sucesso",
+        next: () => this.exibirMensagem('sucesso', "Usuário removido com sucesso"),
         error: (err) => {
           console.error("Erro ao remover usuário:", err);
-          this.resultado = "Erro ao remover usuário";
+          this.exibirMensagem('erro', "Erro ao remover usuário");
         }
       });
   }
 
   fechar(): void {
-    this.isExpanded = false; // Encolhe a caixa
+    this.isExpanded = false;
     this.usuarios = [];
     this.usuario = {};
     this.resultadoGet = '';
@@ -150,7 +143,7 @@ export class AdminDashboard {
   }
 
   verificarId() {
-    if (!(this.id) || this.id == null) {
+    if (!this.id) {
       this.getUsuariosExpandir();
     } else {
       this.getUsuarioid();
@@ -161,19 +154,40 @@ export class AdminDashboard {
     this.http.get<Usuario>(`${this.apiUrl}/${this.id}`, this.getAuthHeaders()).subscribe({
       next: (res) => {
         this.usuario = res;
-        this.resultadoTrue = 'Usuário carregado com sucesso';
         this.nome = res.nome || '';
         this.email = res.email || '';
         this.endereco = res.endereco || '';
         this.cpf = res.cpf || '';
         this.telefone = res.telefone || '';
         this.usuarios = [];
-        this.isExpanded = true; // Expande a caixa
+        this.isExpanded = true;
+        this.exibirMensagem('sucesso', 'Usuário carregado com sucesso');
       },
       error: (err) => {
         console.error('Erro ao buscar usuário:', err);
-        this.resultado = 'Erro ao buscar usuário';
+        this.exibirMensagem('erro', 'Erro ao buscar usuário');
+      }
+    });
+  }
+
+  getUsuarionome(): void {
+    this.http.get<Usuario>(`${this.apiUrl}/nome/${this.nome}`, this.getAuthHeaders()).subscribe({
+      next: (res) => {
+        this.usuario = res;
+        this.nome = res.nome || '';
+        this.email = res.email || '';
+        this.endereco = res.endereco || '';
+        this.cpf = res.cpf || '';
+        this.telefone = res.telefone || '';
+        this.usuarios = [];
+        this.isExpanded = true;
+        this.exibirMensagem('sucesso', 'Usuário carregado com sucesso');
+      },
+      error: (err) => {
+        console.error('Erro ao buscar usuário:', err);
+        this.exibirMensagem('erro', 'Erro ao buscar usuário');
       }
     });
   }
 }
+

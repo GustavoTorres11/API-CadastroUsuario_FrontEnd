@@ -24,7 +24,7 @@ form {
 }
 
 .admin-box-expanded {
-  text-align: center; 
+  text-align: center;
   background: #fff;
   padding: 40px;
   border-radius: 20px;
@@ -129,26 +129,12 @@ form {
   background-color: #f1f1f1;
 }
 
-.resultado {
-  text-align: center;
-  color: rgb(235, 94, 94);
-  padding: 2rem;
-  padding-bottom: 0;
-  font-weight: bold;
-}
-
-.resultadoGet {
-  text-align: center;
-  color: #1f2937;
-  padding: 2rem;
-  font-size: x-large;
-  font-weight: bolder;
-}
 
 .fechar-container {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .fechar-container button {
@@ -160,4 +146,31 @@ form {
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s;
+}
+
+.mensagem {
+  text-align: center;
+  padding: 2rem;
+  padding-bottom: 0;
+  font-weight: bold;
+  transition: opacity 0.5s ease-in-out;
+  font-size: large;
+}
+
+/* Sucesso: azul escuro (cor 1f2937) */
+.sucesso {
+  color: #1f2937;
+}
+
+/* Erro: vermelho claro */
+.erro {
+  color: rgb(235, 94, 94);
+}
+
+.resultadoGet {
+  text-align: center;
+  color: #1f2937;
+  padding: 2rem;
+  font-size: x-large;
+  font-weight: bolder;
 }
