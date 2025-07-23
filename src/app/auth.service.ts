@@ -7,13 +7,13 @@ export class AuthService {
         return localStorage.getItem('token');
     }
 
-    isAdmin(): boolean {
-        const token = this.getToken();
-        if (!token) return false;
+    // isAdmin(): boolean {
+    //     const token = this.getToken();
+    //     if (!token) return false;
 
-        const decoded: any = jwtDecode(token);
-        return decoded?.role === 'admin';
-    }
+    //     const decoded: any = jwtDecode(token);
+    //     return decoded?.role === '';
+    // }
 
     isLoggedIn(): boolean {
         return !!this.getToken();

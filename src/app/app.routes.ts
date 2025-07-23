@@ -4,13 +4,17 @@ import { Cadastro } from './cadastro/cadastro';
 import { Home } from './home/home';
 import { AdminDashboard } from './admin/admin-dashboard';
 import { AdminGuard } from './admin/admin.guard';
+import { TelaPrincipal } from './tela-principal/tela-principal';
+import { Menu } from './menu//menu';
 
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: '', redirectTo: 'TelaPrincipal', pathMatch: 'full' },
     { path: 'login', component: Login },
     { path: 'cadastro', component: Cadastro },
     { path: 'home', component: Home },
+    { path: 'TelaPrincipal', component: TelaPrincipal },
+    {path: '**', redirectTo: 'TelaPrincipal', pathMatch: 'full' },
 
     {
         path: 'admin',

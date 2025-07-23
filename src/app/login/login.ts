@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { LoginService } from '../services/login.services';
+
 import { FormsModule } from '@angular/forms';
 import { Home } from '../home/home';
 import { AdminDashboard } from '../admin/admin-dashboard';
+import { LoginService } from '../services/login.services';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class Login {
 
   onSubmit() {
     this.loginService.login(this.email, this.senha).subscribe(
-      resposta => {
+      (      resposta: { token: string; role: string; }) => {
         console.log('Login bem-sucedido!', resposta);
 
         localStorage.setItem('token', resposta.token);
@@ -34,7 +35,7 @@ export class Login {
           this.router.navigate(['home'])
         }
       },
-      erro => {
+      (      erro: any) => {
         console.error('Erro ao fazer login', erro);
       }
     );

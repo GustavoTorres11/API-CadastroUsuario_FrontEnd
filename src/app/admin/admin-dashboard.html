@@ -1,3 +1,11 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
 <div class="admin-container">
     <div id="adminBox" [ngClass]="{
       'admin-box': !isExpanded,
@@ -7,7 +15,7 @@
 
         <form>
             <div id="inputs" *ngIf="!isExpanded">
-                <input type="text" [(ngModel)]="id" name="id" placeholder="Busca por ID (Listar, Remover ou Editar)" />
+                <input type="text" [(ngModel)]="id" name="id" placeholder="ID (Remover ou Editar)" />
                 <input type="text" [(ngModel)]="nome" name="nome" placeholder="Nome:" />
                 <input type="email" [(ngModel)]="email" name="email" placeholder="Email:" />
                 <input type="password" [(ngModel)]="senha" name="senha" placeholder="Senha:" />
@@ -17,7 +25,7 @@
             </div>
             <div class="botoes">
                 <button type="button" (click)="post()">Cadastrar</button>
-                <button type="button" (click)="verificarId()">Listar</button>
+                <button type="button" (click)="verificarId()">Buscar usuários</button>
                 <button type="button" (click)="put()">Editar</button>
                 <button type="button" (click)="delete()">Remover</button>
             </div>
@@ -65,6 +73,16 @@
                 {{ resultadoGet }}
             </div>
 
+            <div class="buscaUsuarioid">
+                <div class="inputcomIcone">
+                    <input type="text" [(ngModel)]="id" name="idBuscaTabela" placeholder="Buscar usuário por id" />
+
+                    <button type="button" (click)="getUsuarioid()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
             <table id="conteudo" class="tabela-usuarios">
                 <thead>
                     <tr>
@@ -93,6 +111,3 @@
         </div>
     </div>
 </div>
-
-
->

@@ -1,0 +1,40 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<div class="admin-box">
+    <h1>Usuários</h1>
+    <div class="search-bar">
+        <input type="text" placeholder="Buscar">
+        <button>Cadastrar novo cliente</button>
+    </div>
+    <table id="conteudo" class="tabela-usuarios">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Endereço</th>
+                <th>Cpf</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuarios">
+                <td>{{ usuario.nome }}</td>
+                <td>{{ usuario.email }}</td>
+                <td>{{ usuario.telefone }}</td>
+                <td>{{usuario.endereco}}</td>
+                <td>{{usuario.cpf}}</td>
+                <td>
+                    <i class="fas fa-edit" (click)="editarUsuario(usuario.id)"></i>
+                    <i class="fas fa-trash" (click)="removerUsuario(usuario.id)"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

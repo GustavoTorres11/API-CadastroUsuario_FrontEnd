@@ -1,0 +1,79 @@
+.admin-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1500px;
+    margin: 20px auto;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    margin-right: 70px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(53, 53, 53);
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tabela-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabela-usuarios th,
+.tabela-usuarios td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabela-usuarios thead {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.tabela-usuarios tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tabela-usuarios tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.tabela-usuarios td:last-child {
+    text-align: center;
+}
+
+.tabela-usuarios td i {
+    margin: 0 5px;
+    cursor: pointer;
+    color: #666;
+}
+
+.tabela-usuarios td i:hover {
+    color: #000;
+}

@@ -23,6 +23,32 @@ form {
   opacity: 1;
 }
 
+.buscaUsuarioid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+  gap: 10px;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.buscaUsuarioid input {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  padding: 15px;
+  margin-bottom: 25px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f1f1f1;
+  box-sizing: border-box;
+}
+
 .admin-box-expanded {
   text-align: center;
   background: #fff;
@@ -50,7 +76,8 @@ form {
   text-align: center;
   margin-bottom: 20px;
   font-size: 30px;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
+  font-weight: 900;
   color: #1f2937;
 }
 

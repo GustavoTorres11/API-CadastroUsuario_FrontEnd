@@ -1,0 +1,41 @@
+.sidebar {
+    width: 230px;
+    height: 100%;
+    background-color: rgb(53, 53, 53);
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border-radius: 0 30px 0 0;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sidebar h2 {
+    font-family: 'Roboto';
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    color: #fff;
+    font-family: 'Roboto';
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.sidebar a:hover {
+    color: #ddd;
+}
