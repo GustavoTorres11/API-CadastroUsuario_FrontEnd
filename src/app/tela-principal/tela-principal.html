@@ -10,7 +10,7 @@
     <h1>Usuários</h1>
     <div class="search-bar">
         <input type="text" placeholder="Buscar">
-        <button>Cadastrar novo cliente</button>
+        <button class="cadastrocliente" (click)="irParaCadastroCliente()">Cadastrar novo cliente</button>
     </div>
     <table id="conteudo" class="tabela-usuarios">
         <thead>
@@ -32,7 +32,7 @@
                 <td>{{usuario.cpf}}</td>
                 <td>
                     <i class="fas fa-edit" (click)="editarUsuario(usuario.id)"></i>
-                    <i class="fas fa-trash" (click)="removerUsuario(usuario.id)"></i>
+                    <i class="fas fa-trash" (click)="deletar(usuario.id)"></i>
                 </td>
             </tr>
         </tbody>

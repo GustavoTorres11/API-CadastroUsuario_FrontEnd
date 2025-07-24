@@ -27,7 +27,7 @@
     justify-content: center;
     align-items: center;
     background-color: rgb(53, 53, 53);
-    font-size: 18px;
+    font-size: 14px;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -47,7 +47,7 @@
 .tabela-usuarios td {
     padding: 12px 15px;
     text-align: left;
-    font-size: 18px;
+    font-size: 16px;
     border-bottom: 1px solid #ddd;
 }
 

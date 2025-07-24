@@ -18,5 +18,12 @@ export class UsuarioService {
     return this.http.get<Response<UsuarioListar[]>>(this.ApiUrl);
   }
 
+  DeletarUsuario(id: string): Observable<any> {
+    return this.http.delete(`${this.ApiUrl}/${id}`);
+  }
+
+  CadastrarUsuario(usuario: any): Observable<any> {
+    return this.http.post(this.ApiUrl, usuario);
+  }
 
 }

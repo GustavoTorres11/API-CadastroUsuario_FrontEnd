@@ -1,5 +1,5 @@
 /* Fundo */
-.login-container {
+.cadastro-container {
     height: 98.5vh;
     width: 100%;
     display: flex;
@@ -8,7 +8,7 @@
 }
 
 /*container do meio */
-.login-box {
+.cadastro-box {
     background-color: white;
     padding: 80px;
     border-radius: 35px;
@@ -18,7 +18,7 @@
 }
 
 /* Título */
-.login-box h2 {
+.cadastro-box h2 {
     margin-bottom: 30px;
     font-size: 30px;
     font-family: Roboto, sans-serif;
@@ -27,14 +27,14 @@
 }
 
 /* cadastre-se */
-.login-box h3 {
+.cadastro-box h3 {
     font-size: 15px;
     font-family: sans-serif;
     color: #7e7e7e;
 }
 
 /* Inputs */
-.login-box input {
+.cadastro-box input {
     display: block;
     width: 100%;
     max-width: 350px;
@@ -46,17 +46,23 @@
     box-sizing: border-box;
 }
 
-/* Botão verde */
-.login-box button {
-    width: 60%;
-    height: 40px;
+.button {
+    width: 50%;
+    height: 39px;
     border: none;
-    border-radius: 20px;
+    border-radius: 8px;
     background-color: rgb(53, 53, 53);
     cursor: pointer;
     color: white;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 15px;
+}
+
+.btn-content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    gap: 20px;
 }
 
 form>div {

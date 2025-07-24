@@ -1,5 +1,5 @@
 .sidebar {
-    width: 230px;
+    width: 190px;
     height: 100%;
     background-color: rgb(53, 53, 53);
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
@@ -16,6 +16,7 @@
     text-align: center;
     font-weight: 800;
     margin-bottom: 20px;
+    font-size: 18px;
 }
 
 .sidebar ul {
@@ -33,7 +34,7 @@
     color: #fff;
     font-family: 'Roboto';
     text-decoration: none;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .sidebar a:hover {

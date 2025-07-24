@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UsuarioListar } from '../models/usuario';
 import { UsuarioService } from '../services/usuario';
+import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-tela-principal',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './tela-principal.html',
   styleUrls: ['./tela-principal.css']
 })
@@ -20,17 +22,34 @@ export class TelaPrincipal implements OnInit {
 
   ApiUrl = 'https://localhost:7135/';
 
-  constructor(private serviceUsuario: UsuarioService, private readonly http: HttpClient) {
+
+
+  constructor(private router: Router, private serviceUsuario: UsuarioService, private readonly http: HttpClient) {
   }
   ngOnInit(): void {
     this.serviceUsuario.GetUsuarios().subscribe(response => {
       this.usuarios = response;
       this.usuariosGeral = response;
-      console.log(response);
     })
-
-
   }
+
+  irParaCadastroCliente() {
+    this.router.navigate(['/cadastrocliente']);
+  }
+
+  deletar(id: string) {
+    this.serviceUsuario.DeletarUsuario(id).subscribe(response => {
+      console.log(response);
+      // Atualiza a lista na tela
+      this.usuarios = this.usuarios.filter((u: any) => u.id !== id);
+    });
+  }
+
+
+
+
+
+
 
 
   private getAuthHeaders() {
@@ -50,7 +69,6 @@ export class TelaPrincipal implements OnInit {
       },
       error: (err) => {
         console.error('Erro ao buscar usuários:', err);
-        // Adicione uma mensagem de erro, se desejar (ex.: alert ou log)
       }
     });
   }
@@ -73,10 +91,6 @@ export class TelaPrincipal implements OnInit {
         console.error('Erro ao buscar usuários:', err);
       }
     });
-  }
-
-  verUsuario(id: string): void {
-    console.log('Visualizar usuário:', id);
   }
 
   editarUsuario(id: string): void {
