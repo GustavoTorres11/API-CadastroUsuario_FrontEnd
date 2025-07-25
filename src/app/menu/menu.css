@@ -9,6 +9,9 @@
     position: fixed;
     top: 0;
     left: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
 }
 
 .sidebar h2 {
@@ -26,6 +29,11 @@
     margin-left: 30px;
 }
 
+hr {
+    width: 100%;
+    color: rgb(83, 172, 255);
+}
+
 .sidebar li {
     margin-bottom: 10px;
 }
@@ -35,8 +43,30 @@
     font-family: 'Roboto';
     text-decoration: none;
     font-size: 16px;
+
 }
 
 .sidebar a:hover {
     color: #ddd;
+}
+
+footer {
+    display: flex;
+    position: absolute;
+    bottom: 75px;
+    width: 80%;
+    justify-content: flex-start;
+    align-items: center;
+
+    a {
+        padding: 10px 25px;
+        border-radius: 10px;
+        transition: all 0.5s ease-in-out;
+        width: 100%;
+    }
+
+    a:hover {
+        background-color: rgb(175, 62, 62);
+        cursor: pointer;
+    }
 }

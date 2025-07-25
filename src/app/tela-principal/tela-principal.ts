@@ -37,6 +37,10 @@ export class TelaPrincipal implements OnInit {
     this.router.navigate(['/cadastrocliente']);
   }
 
+  editarCliente() {
+    this.router.navigate(['/editar']);
+  }
+
   deletar(id: string) {
     this.serviceUsuario.DeletarUsuario(id).subscribe(response => {
       console.log(response);

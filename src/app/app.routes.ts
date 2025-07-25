@@ -7,6 +7,7 @@ import { AdminGuard } from './admin/admin.guard';
 import { TelaPrincipal } from './tela-principal/tela-principal';
 import { Menu } from './menu//menu';
 import { Cadastrocliente } from './cadastrocliente/cadastrocliente';
+import { Editar } from './editar/editar';
 
 
 export const routes: Routes = [
@@ -16,6 +17,7 @@ export const routes: Routes = [
     { path: 'home', component: Home },
     { path: 'TelaPrincipal', component: TelaPrincipal },
     { path: 'cadastrocliente', component: Cadastrocliente },
+    { path: 'editar', component: Editar},
     { path: '**', redirectTo: 'TelaPrincipal', pathMatch: 'full' },
 
     {

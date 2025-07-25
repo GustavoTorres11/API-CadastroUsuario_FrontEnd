@@ -27,7 +27,6 @@ export class Login {
         console.log('Login bem-sucedido!', resposta);
 
         localStorage.setItem('token', resposta.token);
-        localStorage.setItem('role', resposta.role);
 
         if (resposta.role === 'admin') {
           this.router.navigate(['admin'])
@@ -36,7 +35,7 @@ export class Login {
         }
       },
       (      erro: any) => {
-        console.error('Erro ao fazer login', erro);
+        console.error('Erro ao fazer login', erro); 
       }
     );
   }

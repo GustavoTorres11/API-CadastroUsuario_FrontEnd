@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UsuarioListar } from '../models/usuario';
+import { UsuarioListar, UsuarioResult } from '../models/usuario';
 import { Response } from 'express';
 
 @Injectable({
@@ -11,6 +11,7 @@ import { Response } from 'express';
 export class UsuarioService {
 
   ApiUrl = environment.UrlApi;
+  ApiCad = environment.UrlCad;
 
   constructor(private http: HttpClient) { }
 
@@ -22,8 +23,8 @@ export class UsuarioService {
     return this.http.delete(`${this.ApiUrl}/${id}`);
   }
 
-  CadastrarUsuario(usuario: any): Observable<any> {
-    return this.http.post(this.ApiUrl, usuario);
+  CriarUsuario(usuario: UsuarioListar): Observable<Response<UsuarioResult>> {
+    return this.http.post<Response<UsuarioResult>>(this.ApiCad, usuario);
   }
 
 }

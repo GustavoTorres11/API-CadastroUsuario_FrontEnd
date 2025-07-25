@@ -1,23 +1,2 @@
-<div class="cadastro-container">
-    <div class="cadastro-box">
-        <h2>Cadastrar usuario</h2>
-    <form>
-        <form>
-            <div>
-                <input type="text" name="nome" placeholder="nome:" />
-                <input type="email" name="email" placeholder="e-mail:" />
-                <input type="password" name="senha" placeholder="senha:" />
-                <input type="text" name="telefone" placeholder="telefone:" />
-                <input type="text" name="cpf" placeholder="cpf:" />
-                <input type="text" name="endereço" placeholder="endereço:" />
-            </div>
-
-
-            <div class="btn-content">
-                <button class="button" (click)="Salvar()">Salvar</button>
-                <button class="button" (click)="irParaTelaPrincipal()">Voltar</button>
-            </div>
-
-        </form>  
-    <div>
+<div> <app-formulario (onSubmit)="criarUsuario($event)"></app-formulario>
 </div>

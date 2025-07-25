@@ -8,3 +8,13 @@ export interface UsuarioListar {
   telefone: string;
   role: string;
 }
+
+export interface UsuarioResult {
+  id: string;
+  nome: string;
+  email: string;
+  telefone: string;
+  cpf: string;
+  endereco: string;
+  role: string;
+}

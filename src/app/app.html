@@ -1,4 +1,10 @@
+@if (showMenu) {
 <app-menu></app-menu>
-<div class="content">
+}
+<nav>
+  <button [class.MenuOpenNav]="!showMenu" (click)="Menu()">☰</button>
+</nav>
+
+<div class="content" [class.MenuOpen]="!showMenu">
   <router-outlet></router-outlet>
 </div>

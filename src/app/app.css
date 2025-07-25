@@ -1,5 +1,24 @@
 .content {
-    
-  margin-left: 250px; /* Mesmo valor da largura do sidebar */
+
+  margin-left: 250px;
+  /* Mesmo valor da largura do sidebar */
   padding: 20px;
+  transition: all 0.3s;
+}
+
+nav {
+  width: 100vw;
+  background-color: rgb(77, 74, 74);
+  position: absolute;
+  top: 0;
+  padding-left: 250px;
+  transition: all 0.3s;
+}
+
+.MenuOpen {
+  margin-left: 0px;
+}
+
+.MenuOpenNav {
+  padding-left: 0px;
 }
