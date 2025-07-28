@@ -1,8 +1,7 @@
-@if (showMenu) {
-<app-menu></app-menu>
-}
-<nav>
-  <button [class.MenuOpenNav]="!showMenu" (click)="Menu()">☰</button>
+<app-menu *ngIf="showMenu"></app-menu>
+
+<nav [class.MenuOpenNav]="!showMenu">
+  <i class="fa-solid fa-ellipsis" (click)="Menu()" style="color: white; cursor: pointer;"></i>
 </nav>
 
 <div class="content" [class.MenuOpen]="!showMenu">

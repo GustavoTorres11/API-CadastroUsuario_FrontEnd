@@ -17,7 +17,7 @@ export const routes: Routes = [
     { path: 'home', component: Home },
     { path: 'TelaPrincipal', component: TelaPrincipal },
     { path: 'cadastrocliente', component: Cadastrocliente },
-    { path: 'editar', component: Editar},
+    { path: 'editar/:id', component: Editar},
     { path: '**', redirectTo: 'TelaPrincipal', pathMatch: 'full' },
 
     {

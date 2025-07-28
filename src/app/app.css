@@ -8,7 +8,8 @@
 
 nav {
   width: 100vw;
-  background-color: rgb(77, 74, 74);
+  height: 30px;
+  background-color: rgb(53, 53, 53);;
   position: absolute;
   top: 0;
   padding-left: 250px;
@@ -20,5 +21,20 @@ nav {
 }
 
 .MenuOpenNav {
-  padding-left: 0px;
+   button{
+    position: relative;
+    left: -220px;
+   }
+}
+
+.menu-icon {
+  font-size: 18px;
+  margin-right: 10px;
+  color: #FFF;
+}
+
+.sidebar li a:hover {
+  background-color: rgb(83, 83, 83);
+  color: #fff;
+  cursor: pointer;
 }

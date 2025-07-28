@@ -1,2 +1,9 @@
-<div> <app-formulario (onSubmit)="criarUsuario($event)"></app-formulario>
+<div *ngIf="mensagemSucesso" class="mensagem-sucesso">
+  {{ mensagemSucesso }}
 </div>
+
+<app-formulario 
+  (onSubmit)="criarUsuario($event)" 
+  [btnAcao]="btnAcao" 
+  [descTitulo]="descTitulo">
+</app-formulario>

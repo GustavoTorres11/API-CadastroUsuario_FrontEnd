@@ -1,72 +1,89 @@
 .sidebar {
-    width: 190px;
-    height: 100%;
-    background-color: rgb(53, 53, 53);
-    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
-    color: #fff;
-    border-radius: 0 30px 0 0;
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    z-index: 100;
+  width: 190px;
+  height: 100%;
+  background-color: rgb(53, 53, 53);
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  border-radius: 0 30px 0 0;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
 }
 
 .sidebar h2 {
-    font-family: 'Roboto';
-    text-align: center;
-    font-weight: 800;
-    margin-bottom: 20px;
-    font-size: 18px;
+  font-family: 'Roboto';
+  text-align: center;
+  font-weight: 800;
+  margin-bottom: 20px;
+  font-size: 18px;
 }
 
 .sidebar ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 50px;
-    margin-left: 30px;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 50px;
+  margin-left: 10px; 
 }
 
 hr {
-    width: 100%;
-    color: rgb(83, 172, 255);
+  width: 100%;
+  color: rgb(83, 172, 255);
 }
 
 .sidebar li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
-.sidebar a {
-    color: #fff;
-    font-family: 'Roboto';
-    text-decoration: none;
-    font-size: 16px;
-
+.sidebar li a {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
 }
 
-.sidebar a:hover {
-    color: #ddd;
+.sidebar li a:hover {
+  background-color: rgb(83, 83, 83);
+  color: #fff;
+  cursor: pointer;
+}
+
+.menu-icon {
+  font-size: 18px;
+  margin-right: 10px;
 }
 
 footer {
-    display: flex;
-    position: absolute;
-    bottom: 75px;
-    width: 80%;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  position: absolute;
+  bottom: 75px;
+  width: 80%;
+  justify-content: flex-start;
+  align-items: center;
+}
 
-    a {
-        padding: 10px 25px;
-        border-radius: 10px;
-        transition: all 0.5s ease-in-out;
-        width: 100%;
-    }
+footer a {
+  display: flex;
+  align-items: center;
+  padding: 10px 25px;
+  border-radius: 10px;
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+}
 
-    a:hover {
-        background-color: rgb(175, 62, 62);
-        cursor: pointer;
-    }
+footer a:hover {
+  background-color: rgb(175, 62, 62);
+  cursor: pointer;
 }

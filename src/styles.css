@@ -14,3 +14,12 @@ body {
     margin: 0;
     font-family: 'Roboto', 'sans-serif'
 }
+
+.fa-solid {
+        margin-top: 8px;
+}
+.menu-icon {
+  font-size: 18px;
+  margin-right: 10px;
+  color: #FFF;
+}

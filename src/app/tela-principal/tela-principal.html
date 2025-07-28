@@ -7,9 +7,13 @@
 </head>
 
 <div class="admin-box">
+    <div *ngIf="mensagem" class="mensagem-sucesso">
+  {{ mensagem }}
+    </div>
+
     <h1>Usuários</h1>
     <div class="search-bar">
-        <input type="text" placeholder="Buscar">
+        <input type="text" [(ngModel)]="searchTerm" (input)="buscarUsuarios()" placeholder="Buscar por nome, email, telefone ou CPF">
         <button class="cadastrocliente" (click)="irParaCadastroCliente()">Cadastrar novo cliente</button>
     </div>
     <table id="conteudo" class="tabela-usuarios">
@@ -31,7 +35,7 @@
                 <td>{{usuario.endereco}}</td>
                 <td>{{usuario.cpf}}</td>
                 <td>
-                    <i class="fas fa-edit" (click)="editarCliente()"></i>
+                    <i class="fas fa-edit" (click)="editarCliente(usuario.id)"></i>
                     <i class="fas fa-trash" (click)="deletar(usuario.id)"></i>
                 </td>
             </tr>
