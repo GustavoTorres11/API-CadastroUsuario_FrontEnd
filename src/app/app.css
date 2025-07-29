@@ -1,19 +1,20 @@
 .content {
-
+  height: 100%;
   margin-left: 250px;
-  /* Mesmo valor da largura do sidebar */
   padding: 20px;
   transition: all 0.3s;
 }
 
 nav {
   width: 100vw;
-  height: 30px;
-  background-color: rgb(53, 53, 53);;
+  height: 40px;
+  background-color: rgb(53, 53, 53);
   position: absolute;
   top: 0;
   padding-left: 250px;
   transition: all 0.3s;
+  display: flex;
+  align-items: center;
 }
 
 .MenuOpen {
@@ -21,16 +22,21 @@ nav {
 }
 
 .MenuOpenNav {
-   button{
-    position: relative;
-    left: -220px;
-   }
+  padding-left: 20px;
 }
 
-.menu-icon {
+.fa-solid {
   font-size: 18px;
   margin-right: 10px;
   color: #FFF;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.fa-solid:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .sidebar li a:hover {

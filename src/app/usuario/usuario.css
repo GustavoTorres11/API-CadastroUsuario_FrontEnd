@@ -1,0 +1,77 @@
+.chart-section {
+    height: 650px;
+    background-color: rgb(53, 53, 53);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    margin: 40px auto 20px auto;
+    width: 90%;
+    max-width: 1400px;
+    overflow: hidden;
+}
+
+.chart-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+h3 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.chart-section h3 {
+    margin-bottom: 20px;
+    color: #f8fafc;
+    justify-content: center;
+    align-items: center;
+}
+
+.linha {
+    height: 100%;
+    width: 2px;
+    background-color: #e2e8f0;
+    margin-left: 500px;
+}
+
+/* Overview (cards + estatísticas) */
+.overview {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Cartões laterais */
+.overview-card {
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+
+.new-issues {
+    background-color: #525252;
+}
+
+.closed {
+    background-color: #8a8a8a;
+}
+
+/* Estatísticas do meio */
+.overview-stats {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: #5a5b5e;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    color: #e2e8f0;
+}

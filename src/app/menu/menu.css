@@ -26,7 +26,7 @@
   list-style-type: none;
   padding: 0;
   margin-top: 50px;
-  margin-left: 10px; 
+  margin-left: 10px;
 }
 
 hr {
@@ -38,6 +38,7 @@ hr {
   margin-bottom: 10px;
 }
 
+
 .sidebar li a {
   display: flex;
   align-items: center;
@@ -47,7 +48,7 @@ hr {
   font-size: 16px;
   color: #fff;
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 .sidebar li a:hover {
@@ -59,6 +60,8 @@ hr {
 .menu-icon {
   font-size: 18px;
   margin-right: 10px;
+  position: relative;
+  top: -2.7px;
 }
 
 footer {
@@ -86,4 +89,5 @@ footer a {
 footer a:hover {
   background-color: rgb(175, 62, 62);
   cursor: pointer;
+  transition: all 0.15s ease-in-out;
 }

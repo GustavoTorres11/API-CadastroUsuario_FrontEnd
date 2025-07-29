@@ -1,9 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
 import { UsuarioService } from '../services/usuario';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsuarioListar } from '../models/usuario';
 import { CommonModule } from '@angular/common';
+import { filter } from 'rxjs';
+import { Editar } from '../editar/editar';
 
 @Component({
   selector: 'app-formulario',
@@ -16,13 +18,31 @@ export class Formulario implements OnInit {
   @Input() btnAcao!: string;
   @Input() descTitulo!: string;
   @Input() dadosUsuario: UsuarioListar | null = null;
+
   @Output() onSubmit = new EventEmitter<UsuarioListar>();
 
   usuarioForm!: FormGroup;
+  mode: 'create' | 'edit' = 'create';
+  private activatedRoute = inject(ActivatedRoute);
 
-  constructor(private router: Router, private serviceUsuario: UsuarioService) { }
+  constructor(private router: Router, private serviceUsuario: UsuarioService) {
+  }
 
+  // não trazer a senha no editar
   ngOnInit(): void {
+    this.activatedRoute.url.subscribe({
+      next: (result) => {
+        result?.map(item => {
+          if (item.path == 'editar') {
+            this.mode = 'edit';
+
+          }
+        })
+      }
+    });
+
+    
+
     this.usuarioForm = new FormGroup({
       id: new FormControl(this.dadosUsuario?.id ?? 0),
       nome: new FormControl(this.dadosUsuario?.nome ?? ''),

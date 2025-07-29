@@ -8,6 +8,7 @@ import { TelaPrincipal } from './tela-principal/tela-principal';
 import { Menu } from './menu//menu';
 import { Cadastrocliente } from './cadastrocliente/cadastrocliente';
 import { Editar } from './editar/editar';
+import { Usuario } from './usuario/usuario';
 
 
 export const routes: Routes = [
@@ -17,7 +18,8 @@ export const routes: Routes = [
     { path: 'home', component: Home },
     { path: 'TelaPrincipal', component: TelaPrincipal },
     { path: 'cadastrocliente', component: Cadastrocliente },
-    { path: 'editar/:id', component: Editar},
+    { path: 'editar/:id', component: Editar },
+    { path: 'usuario', component: Usuario },
     { path: '**', redirectTo: 'TelaPrincipal', pathMatch: 'full' },
 
     {

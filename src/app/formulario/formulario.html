@@ -6,7 +6,9 @@
                 <div>
                     <input type="text" name="nome" placeholder="nome:" formControlName="nome" />
                     <input type="email" name="email" placeholder="e-mail:" formControlName="email" />
+                    @if(mode != 'edit'){
                     <input type="password" name="senha" placeholder="senha:" formControlName="senha" />
+                    }
                     <input type="text" name="telefone" placeholder="telefone:" formControlName="telefone" />
                     <input type="text" name="cpf" placeholder="cpf:" formControlName="cpf" />
                     <input type="text" name="endereço" placeholder="endereço:" formControlName="endereco" />
