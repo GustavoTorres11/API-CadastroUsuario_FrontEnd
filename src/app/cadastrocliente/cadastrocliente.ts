@@ -24,6 +24,7 @@ export class Cadastrocliente {
   }
 
   criarUsuario(usuario: UsuarioListar) {
+    console.log(usuario)
     this.serviceUsuario.CriarUsuario(usuario).subscribe(response => {
       this.mensagemSucesso = "Usuário cadastrado com sucesso!";
 

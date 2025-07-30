@@ -8,6 +8,21 @@
     width: 90%;
     max-width: 1400px;
     overflow: hidden;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    width: 100%;
+    display: flex;
+    height: 100%;
 }
 
 .chart-content {
@@ -30,12 +45,38 @@ h3 {
     align-items: center;
 }
 
-.linha {
-    height: 100%;
-    width: 2px;
-    background-color: #e2e8f0;
-    margin-left: 500px;
+.linha-horizontal {
+    height: 2px;
+    width: 90%;
+    background: #333333;
+    background: linear-gradient(256deg, rgba(51, 51, 51, 1) 0%, rgba(184, 184, 184, 1) 50%, rgba(51, 51, 51, 1) 100%);
 }
+
+.linha-vertical {
+    height: 90%;
+    width: 2px;
+    background: #333333;
+    background: linear-gradient(256deg, rgba(51, 51, 51, 1) 0%, rgba(184, 184, 184, 1) 50%, rgba(51, 51, 51, 1) 100%);
+    margin-right: 350px;
+}
+
+.menu-icon {
+    font-size: 100px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.dados-usuario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 35px;
+    padding: 200px;
+}
+
+.texto {}
+
 
 /* Overview (cards + estatísticas) */
 .overview {

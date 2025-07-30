@@ -8,13 +8,16 @@
 
 <div class="admin-box">
     <div *ngIf="mensagem" class="mensagem-sucesso">
-  {{ mensagem }}
+        {{ mensagem }}
     </div>
 
     <h1>Usuários</h1>
     <div class="search-bar">
-        <input type="text" [(ngModel)]="searchTerm" (input)="buscarUsuarios()" placeholder="Buscar por nome, email, telefone ou CPF">
+        <input type="text" [(ngModel)]="searchTerm" (input)="buscarUsuarios()"
+            placeholder="Buscar por nome, email, telefone ou CPF">
+        @if (usuarioLogado.role == "admin") {
         <button class="cadastrocliente" (click)="irParaCadastroCliente()">Cadastrar novo cliente</button>
+        }
     </div>
     <table id="conteudo" class="tabela-usuarios">
         <thead>
@@ -24,7 +27,10 @@
                 <th>Telefone</th>
                 <th>Endereço</th>
                 <th>Cpf</th>
+                @if (usuarioLogado.role == "admin"){
                 <th>Opções</th>
+                }
+
             </tr>
         </thead>
         <tbody>
@@ -34,10 +40,13 @@
                 <td>{{ usuario.telefone }}</td>
                 <td>{{usuario.endereco}}</td>
                 <td>{{usuario.cpf}}</td>
+
+                @if (usuarioLogado.role == "admin") {
                 <td>
                     <i class="fas fa-edit" (click)="editarCliente(usuario.id)"></i>
                     <i class="fas fa-trash" (click)="deletar(usuario.id)"></i>
                 </td>
+                }
             </tr>
         </tbody>
     </table>

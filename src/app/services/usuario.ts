@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UsuarioListar, UsuarioResult } from '../models/usuario';
+import { Usuario } from '../usuario/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,10 @@ export class UsuarioService {
 
   BuscarUsuarios(termo: string): Observable<UsuarioListar[]> {
     return this.http.get<UsuarioListar[]>(`${this.ApiUrl}/buscar?termo=${termo}`);
+  }
+
+  GetUsuario(): Observable<UsuarioListar> {
+    return this.http.get<UsuarioListar>(`${this.ApiUrl}/usuario`);
   }
 
 }

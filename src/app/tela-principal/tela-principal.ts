@@ -6,6 +6,8 @@ import { UsuarioListar } from '../models/usuario';
 import { UsuarioService } from '../services/usuario';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { Usuario } from '../usuario/usuario';
+import { response } from 'express';
 
 @Component({
   selector: 'app-tela-principal',
@@ -16,6 +18,7 @@ import { RouterModule } from '@angular/router';
 })
 export class TelaPrincipal implements OnInit {
 
+  usuarioLogado: UsuarioListar = {} as UsuarioListar;
   usuarios: UsuarioListar[] | any = [];
   usuariosGeral: UsuarioListar[] | any = [];
   searchTerm: string = '';
@@ -44,6 +47,11 @@ export class TelaPrincipal implements OnInit {
         }, 3000);
       }
     });
+
+    this.serviceUsuario.GetUsuario().subscribe(response => {
+      this.usuarioLogado = response;
+    });
+
   }
 
   irParaCadastroCliente() {
