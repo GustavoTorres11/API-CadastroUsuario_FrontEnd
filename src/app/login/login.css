@@ -46,6 +46,11 @@
     box-sizing: border-box;
 }
 
+.logo-image {
+    margin-bottom: 50px;
+    margin-left: -30px;
+}
+
 /* Botão verde */
 .login-box button {
     width: 60%;

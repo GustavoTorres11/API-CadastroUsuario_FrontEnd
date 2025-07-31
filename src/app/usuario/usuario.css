@@ -1,30 +1,40 @@
+/* Container principal da seção */
 .chart-section {
-    height: 650px;
-    background-color: rgb(53, 53, 53);
+    height: 500px;
     padding: 25px;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     margin: 40px auto 20px auto;
     width: 90%;
-    max-width: 1400px;
+    max-width: 1200px;
     overflow: hidden;
-    align-items: center;
     display: flex;
     flex-direction: column;
+    background: linear-gradient(275deg, rgba(83, 83, 83, 1) 0%, rgba(0, 0, 0, 0.8) 35%, rgba(83, 83, 83, 1) 100%);
 }
 
+/* Cabeçalho com título e linha horizontal */
 header {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-section {
-    width: 100%;
-    display: flex;
-    height: 100%;
+.chart-section h3 {
+    font-size: 30px;
+    color: #f8fafc;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
+.linha-horizontal {
+    height: 2px;
+    width: 90%;
+    align-self: center;
+    background: linear-gradient(256deg, rgba(51, 51, 51, 1) 0%, rgba(184, 184, 184, 1) 50%, rgba(51, 51, 51, 1) 100%);
+}
+
+/* Conteúdo principal da seção */
 .chart-content {
     display: flex;
     width: 100%;
@@ -33,36 +43,29 @@ section {
     justify-content: center;
 }
 
-h3 {
-    text-align: center;
-    font-size: 30px;
-}
-
-.chart-section h3 {
-    margin-bottom: 20px;
-    color: #f8fafc;
-    justify-content: center;
+section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 30px;
+    position: relative;
 }
 
-.linha-horizontal {
-    height: 2px;
-    width: 90%;
-    background: #333333;
-    background: linear-gradient(256deg, rgba(51, 51, 51, 1) 0%, rgba(184, 184, 184, 1) 50%, rgba(51, 51, 51, 1) 100%);
-}
-
+/* Linha vertical entre os lados */
 .linha-vertical {
     height: 90%;
     width: 2px;
-    background: #333333;
     background: linear-gradient(256deg, rgba(51, 51, 51, 1) 0%, rgba(184, 184, 184, 1) 50%, rgba(51, 51, 51, 1) 100%);
-    margin-right: 350px;
+    margin-right: 50px;
+    margin-left: 50px;
 }
 
+/* Ícone e nome do usuário (esquerda) */
 .menu-icon {
     font-size: 100px;
-    color: white;
+    color: #e2e8f0;
     margin-bottom: 15px;
 }
 
@@ -72,13 +75,49 @@ h3 {
     align-items: center;
     flex-direction: column;
     gap: 35px;
-    padding: 200px;
+    position: relative;
+    left: 110px;
+    bottom: -50px;
 }
 
-.texto {}
+.dados-usuario .texto {
+    font-family: 'Roboto', sans-serif;
+    color: #f8fafc;
+}
 
+.dados-usuario .texto h1 {
+    font-size: 25px;
+    font-weight: 700;
+    gap: 40px;
+}
 
-/* Overview (cards + estatísticas) */
+/* Informações do usuário (direita) */
+.informacoes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 30px;
+    font-family: 'Roboto', sans-serif;
+    color: #e2e8f0;
+    position: relative;
+    left: -200px;
+    /* ajuste conforme necessário */
+}
+
+.informacoes h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.informacoes h3 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #cbd5e1;
+    margin: 0;
+}
+
 .overview {
     margin-top: 20px;
     display: flex;
@@ -86,7 +125,6 @@ h3 {
     flex-wrap: wrap;
 }
 
-/* Cartões laterais */
 .overview-card {
     flex: 1;
     padding: 20px;
@@ -103,7 +141,6 @@ h3 {
     background-color: #8a8a8a;
 }
 
-/* Estatísticas do meio */
 .overview-stats {
     flex: 2;
     display: flex;

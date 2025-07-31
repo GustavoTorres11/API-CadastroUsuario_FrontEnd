@@ -25,7 +25,7 @@ export class App {
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       const currentUrl = this.router.url;
-      this.showMenu = !(currentUrl.includes('/login'));
+      this.showMenu = !(currentUrl.includes('/login')) && !(currentUrl.includes('/cadastro'));
     });
   }
 }

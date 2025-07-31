@@ -10,7 +10,7 @@
 /*container do meio */
 .cadastro-box {
     background-color: white;
-    padding: 80px;
+    padding: 80px 45px;
     border-radius: 50px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     width: 30%;
@@ -51,6 +51,11 @@ form>div {
     border-radius: 20px;
     background-color: #f1f1f1;
     box-sizing: border-box;
+}
+
+.logo-image {
+    margin-bottom: 50px;
+    margin-left: -30px;
 }
 
 /* Botão verde */
