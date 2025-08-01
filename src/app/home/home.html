@@ -1,65 +1,36 @@
-<!---primeiro card---->
-<div class="chart-section">
-    <h3>Resumo de Tarefas</h3>
-    <div class="overview">
+<div class="dashboard-container">
+  <!-- Header -->
+  <div class="dashboard-header">
+    <div>
+      <h1>Dashboard</h1>
+      <p>Bem-vindo de volta! Aqui está um resumo das suas atividades.</p>
+    </div>
+    <button class="btn btn-primary">
+      <span class="icon">+</span>
+      Nova Ação
+    </button>
+  </div>
+
+  <!-- Cards Grid -->
+  <div class="cards-grid">
+    <div *ngFor="let card of dashboardCards" class="chart-section">
+      <h3>{{ card.title }}</h3>
+      <div class="overview">
         <div class="overview-card new-issues">
-            <h2>214</h2>
-            <p>Novas Tarefas</p>
+          <h2>{{ card.newCount }}</h2>
+          <p>{{ card.newLabel }}</p>
         </div>
 
         <div class="overview-card closed">
-            <h2>75</h2>
-            <p>Finalizadas</p>
+          <h2>{{ card.closedCount }}</h2>
+          <p>{{ card.closedLabel }}</p>
         </div>
 
         <div class="overview-stats">
-            <span class="info-h3">Informações rápidas:</span>
-            <span>Tempo de uso: 8,5 horas</span>
-            <span>50 novos clientes</span>
+          <span class="info-h3">{{ card.infoTitle }}</span>
+          <span *ngFor="let item of card.infoItems">{{ item }}</span>
         </div>
+      </div>
     </div>
-</div>
-
-<!---segundo card---->
-<div class="chart-section">
-    <h3>Atividades Recentes</h3>
-    <div class="overview">
-        <div class="overview-card new-issues">
-            <h2>33</h2>
-            <p>Novas Propostas</p>
-        </div>
-
-        <div class="overview-card closed">
-            <h2>20</h2>
-            <p>Requisições</p>
-        </div>
-
-        <div class="overview-stats">
-            <span class="info-h3">Resumo:</span>
-            <span>Equipe ativa hoje</span>
-            <span>120 tickets processados</span>
-        </div>
-    </div>
-</div>
-
-<!---terceiro card---->
-<div class="chart-section">
-    <h3>Chamados Técnicos</h3>
-    <div class="overview">
-        <div class="overview-card new-issues">
-            <h2>18</h2>
-            <p>Em aberto</p>
-        </div>
-
-        <div class="overview-card closed">
-            <h2>41</h2>
-            <p>Resolvidos</p>
-        </div>
-
-        <div class="overview-stats">
-            <span class="info-h3">Relatório:</span>
-            <span>Tempo médio: 1h 35min</span>
-            <span>Feedbacks positivos: 87%</span>
-        </div>
-    </div>
+  </div>
 </div>

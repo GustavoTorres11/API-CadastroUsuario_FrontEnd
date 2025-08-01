@@ -1,59 +1,204 @@
-.chart-section {
-  background-color: rgb(53, 53, 53);
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  margin: 40px auto 20px auto; /* centraliza horizontalmente */
-  width: 90%;
-  max-width: 1400px; /* limita a largura máxima */
+.dashboard-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #0f172a;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #f8fafc;
+  min-height: 100vh;
 }
 
-.chart-section h3 {
-  margin-bottom: 20px;
-  font-size: 1.3rem;
-  color: #f8fafc;
-}
-
-/* Overview (cards + estatísticas) */
-.overview {
-  margin-top: 20px;
+/* Header */
+.dashboard-header {
   display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
-/* Cartões laterais */
-.overview-card {
+.dashboard-header div {
   flex: 1;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
+}
+
+.dashboard-header h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+}
+
+.dashboard-header p {
+  margin-top: 0.25rem;
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.btn-primary {
+  background-color: #3b82f6;
   color: white;
 }
 
-.new-issues {
-  background-color: #525252;
-}
-.closed {
-  background-color: #8a8a8a;
+.btn-primary:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }
 
-/* Estatísticas do meio */
+.icon {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Chart Section (Cards) */
+.chart-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.chart-section:hover {
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.chart-section h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Overview */
+.overview {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+/* Overview cards */
+.overview-card {
+  flex: 1;
+  min-width: 120px;
+  padding: 1.5rem 1rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.overview-card:hover {
+  transform: translateY(-2px);
+}
+
+.overview-card h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.overview-card p {
+  margin: 0;
+  font-size: 0.875rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.new-issues {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.3);
+}
+
+.closed {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.3);
+}
+
+/* Overview stats */
 .overview-stats {
-  flex: 2;
+  flex: 1.5;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 8px;
-  padding: 10px 20px;
-  background-color: #5a5b5e;
-  border-radius: 10px;
-  font-size: 0.95rem;
-  color: #e2e8f0;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+.overview-stats span {
+  display: block;
+  line-height: 1.4;
 }
 
 .info-h3 {
-  font-size: larger;
-  font-weight: bold;
-  margin-bottom: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #0f172a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.875rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .overview {
+    flex-direction: column;
+  }
+
+  .overview-card, 
+  .overview-stats {
+    min-width: auto;
+  }
 }

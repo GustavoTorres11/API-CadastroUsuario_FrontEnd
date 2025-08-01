@@ -1,31 +1,68 @@
-<main class="chart-content">
-    <div class="chart-section">
-
-        <header>
-            <h3>Usuário</h3>
-            <div class="linha-horizontal"></div>
-        </header>
-
-        <section>
-
-            <div class="dados-usuario">
-                <i class="fa-solid fa-user fa-lg menu-icon"></i>
-                <div class="texto">
-                    <h1>{{usuario.nome}}</h1>
-                </div>
-            </div>
-
-            <div class="linha-vertical">
-            </div>
-
-            <div class="informacoes">
-                <h2>Email: {{usuario.email}}</h2>
-                <h2>Endereço: {{ usuario.endereco }}</h2>
-            </div>
-
-            <div class="overview">
-
-            </div>
-        </section>
+<div class="profile-container">
+  <div class="profile-header">
+    <h1>Usuário</h1>
+    <div class="header-actions">
     </div>
-</main>
+  </div>
+
+  <!-- Profile Card -->
+  <div class="profile-card">
+    <div class="profile-content">
+      <!-- Avatar Section -->
+      <div class="avatar-section">
+        <div class="avatar">
+          <div class="avatar-circle">
+            <span class="avatar-initials">{{ getInitials(usuario.nome) }}</span>
+          </div>
+        </div>
+        
+        <div class="user-basic-info">
+          <h2 class="user-name">{{ usuario.nome || 'Nome não informado' }}</h2>
+          <span class="user-status">Ativo</span>
+        </div>
+      </div>
+
+      <!-- Info Section -->
+      <div class="info-section">
+        <div class="info-grid">
+            
+          <!-- Email -->
+          <div class="info-item">
+            <div class="info-label">
+              <i class="fas fa-envelope"></i>
+              <span>Email</span>
+            </div>
+            <p class="info-value">{{ usuario.email || 'Email não informado' }}</p>
+          </div>
+
+          <!-- Address -->
+          <div class="info-item">
+            <div class="info-label">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Endereço</span>
+            </div>
+            <p class="info-value">{{ usuario.endereco || 'Endereço não informado' }}</p>
+          </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-value">127</div>
+              <div class="stat-label">Clientes</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">89%</div>
+              <div class="stat-label">Taxa de Sucesso</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">2.5 anos</div>
+              <div class="stat-label">Experiência</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
