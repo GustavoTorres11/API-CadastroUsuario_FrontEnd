@@ -1,12 +1,12 @@
 export interface UsuarioListar {
-  id: string;
-  nome: string;
-  email: string;
+  id?: string;
+  nome?: string;
+  email?: string;
   senha?: string;
-  endereco: string;
-  cpf: string;
-  telefone: string;
-  role: string;
+  endereco?: string;
+  cpf?: string;
+  telefone?: string;
+  role?: string;
 }
 
 export interface UsuarioResult {

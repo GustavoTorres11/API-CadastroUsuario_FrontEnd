@@ -1,7 +1,7 @@
 /* Fundo */
 .cadastro-container {
     height: 98.5vh;
-    width: 100%;
+    width: 85%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,6 +15,9 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     width: 30%;
     text-align: center;
+    margin-left: 250px;
+    justify-content: center;
+    align-items: center;
 }
 
 form>div {
@@ -64,7 +67,7 @@ form>div {
     height: 40px;
     border: none;
     border-radius: 20px;
-    background-color: #1F2937;
+    background-color: rgb(53, 53, 53);
     cursor: pointer;
     color: white;
     font-weight: bold;
