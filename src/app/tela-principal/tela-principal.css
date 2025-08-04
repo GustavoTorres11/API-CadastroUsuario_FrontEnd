@@ -11,10 +11,12 @@
 }
 
 h1 {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 30px;
-  color: #222;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
 }
 
 /* Search Bar */
@@ -58,7 +60,7 @@ h1 {
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
-  background-color: #2c2c2c;
+  background-color: #1f2d44;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -69,7 +71,7 @@ h1 {
 }
 
 .search-bar button.cadastrocliente:hover {
-  background-color: #1a1a1a;
+  background-color: #121724;
 }
 
 /* Tabela */
@@ -119,30 +121,6 @@ h1 {
   color: #000;
 }
 
-/* Badge status (opcional caso queira implementar visual status no futuro) */
-.badge {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: capitalize;
-}
-
-.badge.default {
-  background-color: #e0ffe0;
-  color: #228822;
-}
-
-.badge.secondary {
-  background-color: #fff0c2;
-  color: #b48c00;
-}
-
-.badge.destructive {
-  background-color: #ffe0e0;
-  color: #d10000;
-}
 
 /* Mensagem Sucesso */
 .mensagem-sucesso {

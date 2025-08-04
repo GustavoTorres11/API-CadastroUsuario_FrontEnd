@@ -1,68 +1,49 @@
-<div class="profile-container">
-  <div class="profile-header">
-    <h1>Usuário</h1>
-    <div class="header-actions">
+<div class="cartao-usuario" *ngIf="usuario">
+  <div class="cabecalho">
+    <div class="avatar">
+      {{ getIniciais() }}
+    </div>
+    <div class="informacoes-usuario">
+      <div class="detalhes-usuario">
+        <h3 class="nome-usuario">{{ usuario.nome }}</h3>
+        <span class="status ativo">ativo</span>
+      </div>
     </div>
   </div>
 
-  <!-- Profile Card -->
-  <div class="profile-card">
-    <div class="profile-content">
-      <!-- Avatar Section -->
-      <div class="avatar-section">
-        <div class="avatar">
-          <div class="avatar-circle">
-            <span class="avatar-initials">{{ getInitials(usuario.nome) }}</span>
-          </div>
-        </div>
-        
-        <div class="user-basic-info">
-          <h2 class="user-name">{{ usuario.nome || 'Nome não informado' }}</h2>
-          <span class="user-status">Ativo</span>
-        </div>
-      </div>
+  <hr>
 
-      <!-- Info Section -->
-      <div class="info-section">
-        <div class="info-grid">
-            
-          <!-- Email -->
-          <div class="info-item">
-            <div class="info-label">
-              <i class="fas fa-envelope"></i>
-              <span>Email</span>
-            </div>
-            <p class="info-value">{{ usuario.email || 'Email não informado' }}</p>
-          </div>
+  <div class="informacoes">
+    <div class="item-informacao">
+      <div class="rotulo">Email</div>
+      <div class="valor">{{ usuario.email }}</div>
+    </div>
+    <div class="item-informacao">
+      <div class="rotulo">Endereço</div>
+      <div class="valor">{{ usuario.endereco }}</div>
+    </div>
+     <div class="item-informacao">
+      <div class="rotulo">Telefone</div>
+      <div class="valor">{{ usuario.telefone }}</div>
+    </div>
+     <div class="item-informacao">
+      <div class="rotulo">Cpf</div>
+      <div class="valor">{{ usuario.cpf }}</div>
+    </div>
+  </div>
 
-          <!-- Address -->
-          <div class="info-item">
-            <div class="info-label">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Endereço</span>
-            </div>
-            <p class="info-value">{{ usuario.endereco || 'Endereço não informado' }}</p>
-          </div>
-        </div>
-
-        <!-- Stats Section -->
-        <div class="stats-section">
-          <div class="stats-grid">
-            <div class="stat-card">
-              <div class="stat-value">127</div>
-              <div class="stat-label">Clientes</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value">89%</div>
-              <div class="stat-label">Taxa de Sucesso</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value">2.5 anos</div>
-              <div class="stat-label">Experiência</div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="estatisticas">
+    <div class="item-estatistica">
+      <span class="numero">127</span>
+      <span class="legenda">Clientes</span>
+    </div>
+    <div class="item-estatistica">
+      <span class="numero">89%</span>
+      <span class="legenda">Taxa de Sucesso</span>
+    </div>
+    <div class="item-estatistica">
+      <span class="numero">2 anos</span>
+      <span class="legenda">Experiência</span>
     </div>
   </div>
 </div>

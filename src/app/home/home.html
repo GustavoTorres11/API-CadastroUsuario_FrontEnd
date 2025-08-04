@@ -1,35 +1,65 @@
-<div class="dashboard-container">
-  <!-- Header -->
-  <div class="dashboard-header">
-    <div>
-      <h1>Dashboard</h1>
-      <p>Bem-vindo de volta! Aqui está um resumo das suas atividades.</p>
+<div class="dashboard">
+  <h1>Dashboard</h1>
+  <p class="subtitulo">Bem-vindo de volta! Aqui está um resumo das suas atividades.</p>
+
+  <div class="card-main">
+    <!-- Resumo de Tarefas -->
+    <div class="card">
+      <h3>Resumo de Tarefas</h3>
+      <div class="stats">
+        <div class="stat-1">
+          <strong>214</strong>
+          <span>Novas Tarefas</span>
+        </div>
+        <div class="stat-2">
+          <strong>75</strong>
+          <span>Finalizadas</span>
+        </div>
+      </div>
+      <div class="extra">
+        <p><strong>Informações rápidas:</strong></p>
+        <p>Tempo de uso: 8,5 horas</p>
+        <p>50 novos clientes</p>
+      </div>
     </div>
-    <button class="btn btn-primary">
-      <span class="icon">+</span>
-      Nova Ação
-    </button>
-  </div>
 
-  <!-- Cards Grid -->
-  <div class="cards-grid">
-    <div *ngFor="let card of dashboardCards" class="chart-section">
-      <h3>{{ card.title }}</h3>
-      <div class="overview">
-        <div class="overview-card new-issues">
-          <h2>{{ card.newCount }}</h2>
-          <p>{{ card.newLabel }}</p>
+    <!-- Atividades Recentes -->
+    <div class="card">
+      <h3>Atividades Recentes</h3>
+      <div class="stats">
+        <div class="stat-1">
+          <strong>33</strong>
+          <span>Novas Propostas</span>
         </div>
+        <div class="stat-2">
+          <strong>20</strong>
+          <span>Requisições</span>
+        </div>
+      </div>
+      <div class="extra">
+        <p><strong>Resumo:</strong></p>
+        <p>Equipe ativa hoje</p>
+        <p>120 tickets processados</p>
+      </div>
+    </div>
 
-        <div class="overview-card closed">
-          <h2>{{ card.closedCount }}</h2>
-          <p>{{ card.closedLabel }}</p>
+    <!-- Chamados Técnicos -->
+    <div class="card">
+      <h3>Chamados Técnicos</h3>
+      <div class="stats">
+        <div class="stat-1">
+          <strong>18</strong>
+          <span>Em aberto</span>
         </div>
-
-        <div class="overview-stats">
-          <span class="info-h3">{{ card.infoTitle }}</span>
-          <span *ngFor="let item of card.infoItems">{{ item }}</span>
+        <div class="stat-2">
+          <strong>41</strong>
+          <span>Resolvidos</span>
         </div>
+      </div>
+      <div class="extra">
+        <p><strong>Relatório:</strong></p>
+        <p>Tempo médio: 1h 35min</p>
+        <p>Feedbacks positivos: 87%</p>
       </div>
     </div>
   </div>

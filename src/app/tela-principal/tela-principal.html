@@ -43,8 +43,8 @@
 
                 @if (usuarioLogado.role == "admin") {
                 <td>
-                    <i class="fas fa-edit" (click)="editarCliente(usuario.id)"></i>
-                    <i class="fas fa-trash" (click)="deletar(usuario.id)"></i>
+                    <i class="fas fa-edit" (click)="editarCliente(usuario.id!)"></i>
+                    <i class="fas fa-trash" (click)="deletar(usuario.id!)"></i>
                 </td>
                 }
             </tr>

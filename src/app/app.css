@@ -8,7 +8,8 @@
 nav {
   width: 100vw;
   height: 40px;
-  background-color: rgb(53, 53, 53);
+  background: #1F2937;
+  background: linear-gradient(96deg,rgba(31, 41, 55, 1) 0%, rgba(17, 24, 39, 1) 35%);
   position: absolute;
   top: 0;
   padding-left: 250px;
@@ -44,3 +45,6 @@ nav {
   color: #fff;
   cursor: pointer;
 }
+
+
+
